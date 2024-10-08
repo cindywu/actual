@@ -191,6 +191,7 @@ function Footer({
 
   return (
     <View
+      data-testid="transaction-form-footer"
       style={{
         paddingLeft: styles.mobileEditingPadding,
         paddingRight: styles.mobileEditingPadding,
@@ -800,7 +801,10 @@ const TransactionEditInner = memo(function TransactionEditInner({
       }
       padding={0}
     >
-      <View style={{ flexShrink: 0, marginTop: 20, marginBottom: 20 }}>
+      <View
+        data-testid="transaction-form"
+        style={{ flexShrink: 0, marginTop: 20, marginBottom: 20 }}
+      >
         <View
           style={{
             alignItems: 'center',
