@@ -158,7 +158,7 @@ export function MobileNavTabs() {
     } else {
       openDefault();
     }
-  }, [scrollY]);
+  }, [scrollY, hide, openDefault]);
 
   const bind = useDrag(
     ({
