@@ -130,6 +130,7 @@ function Notification({
 
   return (
     <View
+      role="alert"
       style={{
         marginTop: 10,
         color: positive
