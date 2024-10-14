@@ -105,31 +105,37 @@ export class MobileNavigation {
   }
 
   async goToBudgetPage() {
-    return this.navigateToPage('Budget', () => new MobileBudgetPage(this.page));
+    return await this.navigateToPage(
+      'Budget',
+      () => new MobileBudgetPage(this.page),
+    );
   }
 
   async goToAccountsPage() {
-    return this.navigateToPage(
+    return await this.navigateToPage(
       'Accounts',
       () => new MobileAccountsPage(this.page),
     );
   }
 
   async goToTransactionEntryPage() {
-    return this.navigateToPage(
+    return await this.navigateToPage(
       'Transaction',
       () => new MobileTransactionEntryPage(this.page),
     );
   }
 
   async goToReportsPage() {
-    return this.navigateToPage(
+    return await this.navigateToPage(
       'Reports',
       () => new MobileReportsPage(this.page),
     );
   }
 
   async goToSettingsPage() {
-    return this.navigateToPage('Settings', () => new SettingsPage(this.page));
+    return await this.navigateToPage(
+      'Settings',
+      () => new SettingsPage(this.page),
+    );
   }
 }
