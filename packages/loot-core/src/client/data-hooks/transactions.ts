@@ -105,21 +105,13 @@ export function useTransactions({
   };
 }
 
-type UsePreviewTransactionsProps = {
-  options?: {
-    isDisabled?: boolean;
-  };
-}
-
 type UsePreviewTransactionsResult = {
   data: ReadonlyArray<TransactionEntity>;
   isLoading: boolean;
   error?: Error;
 };
 
-export function usePreviewTransactions({
-  options: { isDisabled } = { isDisabled: false },
-}: UsePreviewTransactionsProps = {}): UsePreviewTransactionsResult {
+export function usePreviewTransactions(): UsePreviewTransactionsResult {
   const [previewTransactions, setPreviewTransactions] = useState<
     TransactionEntity[]
   >([]);
@@ -136,10 +128,6 @@ export function usePreviewTransactions({
     if (isSchedulesLoading) {
       return [];
     }
-
-    let isUnmounted = false;
-
-    setIsLoading(schedules.length > 0);
 
     // Kick off an async rules application
     const schedulesForPreview = schedules.filter(s =>
@@ -205,7 +193,7 @@ export function usePreviewTransactions({
   }, [scheduleTransactions, schedules, statuses]);
 
   return {
-    data: isDisabled ? [] : previewTransactions,
+    data: previewTransactions,
     isLoading: isLoading || isSchedulesLoading,
     error: error || scheduleQueryError,
   };
